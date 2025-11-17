@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciberseguridad para Jóvenes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F7F7F7;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #FF6F61;
+            color: white;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .button {
+            background-color: #6B5B93;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 90%; /* Full width on mobile */
+            max-width: 300px; /* Limit width */
+        }
+        .button:hover {
+            background-color: #5a4c7c;
+        }
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            margin: 20px;
+            padding: 20px;
+            text-align: left;
+            display: none; /* Ocultar secciones por defecto */
+        }
+        h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            color: #666666;
+        }
+        #quiz {
+            display: none; /* Ocultar el cuestionario por defecto */
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        @media (min-width: 375px) {
+            header {
+                font-size: 28px; /* Larger font for bigger screens */
+            }
+            .button {
+                font-size: 20px; /* Larger button text */
+            }
+            h2 {
+                font-size: 24px; /* Larger section titles */
+            }
+            p {
+                font-size: 18px; /* Larger paragraph text */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Ciberseguridad para Jóvenes 🔒
+</header>
+
+<div class="section" id="inicio">
+    <h2>¿Qué es la ciberseguridad? 🎓</h2>
+    <p>La ciberseguridad es la práctica de proteger sistemas, redes y programas de ataques digitales. Aquí aprenderás cómo mantenerte seguro en línea.</p>
+    <button class="button" onclick="showSection('contenido');">Comenzar</button>
+</div>
+
+<div class="section" id="contenido">
+    <h2>Introducción a la Ciberseguridad</h2>
+    <p>La ciberseguridad es esencial en nuestra vida diaria. Con el aumento del uso de Internet, es crucial saber cómo proteger nuestra información personal y mantenernos a salvo de los peligros en línea.</p>
+    <button class="button" onclick="showSection('amenazas');">Amenazas Comunes</button>
+    <button class="button" onclick="showSection('consejos');">Consejos de Seguridad</button>
+    <button class="button" onclick="showSection('quiz');">Juego Interactivo</button>
+    <button class="button" onclick="showSection('inicio');">Volver al Inicio</button>
+</div>
+
+<div class="section" id="amenazas">
+    <h2>Amenazas Comunes: 🦠 🎣</h2>
+    <p>- Virus y malware: Software malicioso que puede dañar tu dispositivo.</p>
+    <p>- Phishing: Intentos de engañarte para que compartas información personal.</p>
+    <p>- Ransomware:Un tipo de malware que bloquea tus archivos y pide un rescate para liberarlos.</p>
+    <button class="button" onclick="showSection('contenido');">Volver a Contenido</button>
+</div>
+
+<div class="section" id="consejos">
+    <h2>Consejos de Seguridad:</h2>
+    <p>- Usa contraseñas seguras 🔑: Combina letras, números y símbolos.</p>
+    <p>- No compartas información personal 📱: Mantén tus datos privados.</p>
+    <p>- Mantén tu software actualizado: Las actualizaciones corrigen vulnerabilidades.</p>
+    <button class="button" onclick="showSection('contenido');">Volver a Contenido</button>
+</div>
+
+<div class="section" id="quiz">
+    <h2>Juego Interactivo: Cuestionario de Ciberseguridad</h2>
+    <div class="question">
+        <p>1. ¿Qué es el phishing?</p>
+        <button class="button" onclick="checkAnswer('incorrecto');">Un tipo de malware</button>
+        <button class="button" onclick="checkAnswer('correcto');">Intentos de engañarte para obtener información personal</button>
+        <button class="button" onclick="checkAnswer('incorrecto');">Un programa antivirus</button>
+    </div>
+    <div class="question">
+        <p>2. ¿Cuál de las siguientes es una buena práctica de seguridad?</p>
+        <button class="button" onclick="checkAnswer('correcto');">Usar contraseñas seguras</button>
+        <button class="button" onclick="checkAnswer('incorrecto');">Compartir tu contraseña con amigos</button>
+        <button class="button" onclick="checkAnswer('incorrecto');">Usar la misma contraseña para todo</button>
+    </div>
+    <div class="question">
+        <p>3. ¿Qué debes hacer si recibes un correo sospechoso?</p>
+        <button class="button" onclick="checkAnswer('correcto');">No abrirlo y eliminarlo</button>
+        <button class="button" onclick="checkAnswer('incorrecto');">Abrirlo y responder</button>
+        <button class="button" onclick="checkAnswer('incorrecto');">Reenviarlo a todos tus contactos</button>
+    </div>
+    <div class="result" id="result"></div>
+    <button class="button" onclick="showSection('contenido');">Volver a Contenido</button>
+</div>
+
+<script>
+    // Función para mostrar la sección seleccionada
+    function showSection(sectionId) {
+        // Ocultar todas las secciones
+        var sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+            section.style.display = 'none';
+        });
+
+        // Mostrar la sección seleccionada
+        document.getElementById(sectionId).style.display = 'block';
+    }
+
+    // Función para verificar las respuestas del cuestionario
+    function checkAnswer(answer) {
+        var result = document.getElementById('result');
+        if (answer === 'correcto') {
+            result.innerHTML = "¡Correcto! 👍";
+        } else {
+            result.innerHTML = "Incorrecto. ❌ Intenta de nuevo.";
+        }
+    }
+
+    // Mostrar la sección de inicio al cargar la página
+    window.onload = function() {
+        showSection('inicio');
+    };
+</script>
+
+</body>
+</html>
